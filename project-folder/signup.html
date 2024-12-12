@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="signupForm" class="form signup-form">
+        <h2>Sign Up</h2>
+        <div class="form-group">
+          <label for="signupName">Name</label>
+          <input
+            type="text"
+            id="signupName"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input
+            type="email"
+            id="signupEmail"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <div class="password-field">
+            <input
+              type="password"
+              id="signupPassword"
+              name="password"
+              placeholder="Create a password"
+              required
+            />
+            <button
+              type="button"
+              id="toggleSignupPassword"
+              class="password-toggle"
+            >
+              👁
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // form submission
+        $("#signupForm").on("submit", function (event) {
+          event.preventDefault();
+          const name = $("#signupName").val();
+          const email = $("#signupEmail").val();
+          const password = $("#signupPassword").val();
+
+          if (name && email && password) {
+            // success page
+            window.location.href =
+              "success.html?message=Thanks for signing up!";
+          } else {
+            alert("Please fill out all fields.");
+          }
+        });
+
+        //password visibility
+        $("#toggleSignupPassword").click(function () {
+          const passwordField = $("#signupPassword");
+          const type =
+            passwordField.attr("type") === "password" ? "text" : "password";
+          passwordField.attr("type", type);
+
+          // icon
+          $(this).text(type === "password" ? "👁" : "🙈");
+        });
+      });
+    </script>
+  </body>
+</html>

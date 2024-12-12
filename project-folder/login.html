@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="loginForm" class="form login-form">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="password-field">
+            <input
+              type="password"
+              id="loginPassword"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <button type="button" id="togglePassword" class="password-toggle">
+              👁
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <p class="toggle-link">
+          Don't have an account?
+          <button type="button" id="goToSignup" class="btn-link">
+            Register
+          </button>
+        </p>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // form submission
+        $("#loginForm").on("submit", function (event) {
+          event.preventDefault();
+          const email = $("#loginEmail").val();
+          const password = $("#loginPassword").val();
+
+          if (email && password) {
+            // success page
+            window.location.href =
+              "success.html?message=Thanks for logging in!";
+          } else {
+            alert("Please fill out all fields.");
+          }
+        });
+
+        // signup page
+        $("#goToSignup").click(function () {
+          window.location.href = "signup.html";
+        });
+
+        // password visibility
+        $("#togglePassword").click(function () {
+          const passwordField = $("#loginPassword");
+          const type =
+            passwordField.attr("type") === "password" ? "text" : "password";
+          passwordField.attr("type", type);
+
+          // icon
+          $(this).text(type === "password" ? "👁" : "🙈");
+        });
+      });
+    </script>
+  </body>
+</html>

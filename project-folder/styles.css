@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+    0px 6px 6px rgbargba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, box-shadow 0.3 ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3), 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.success-message {
+  text-align: center;
+  color: #28a745;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+/* Password */
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Success Page */
+.success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  color: white;
+}
+
+.success-container h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.success-container p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.success-container .btn {
+  background: white;
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+}
